@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figure Caption Extraction App</title>
+
+  <!-- Asciinema player CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/asciinema-player/dist/asciinema-player.css"
+  />
+
+  <style>
+    /* === Scientific Theme CSS === */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Roboto Slab', serif;
+      background: #f3f6f8;
+      color: #222;
+      margin: 0;
+      padding: 0 20px 40px;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 3px solid #007acc;
+      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      box-shadow: 0 2px 6px rgba(0, 122, 204, 0.3);
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      color: #004a80;
+      font-size: 2.1rem;
+      letter-spacing: 0.05em;
+    }
+
+    header p {
+      font-size: 2rem;
+      margin-top: 0.4rem;
+      color: #006bb3;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background: white;
+      padding: 1.8rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+    }
+
+    h2 {
+      border-bottom: 2px solid #007acc;
+      padding-bottom: 0.3rem;
+      color: #004a80;
+      margin-top: 0;
+    }
+
+    /* Asciinema player styling */
+    asciinema-player {
+      display: block;
+      margin: 1rem 0;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
+    }
+
+    /* Screenshot gallery */
+    .screenshots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .screenshots img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Links styling */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .links a {
+      background: #007acc;
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgb(0 122 204 / 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .links a:hover {
+      background: #005f99;
+      box-shadow: 0 4px 12px rgb(0 122 204 / 0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #ccc;
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .screenshots {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Final Project Showcase</h1>
+    <p>Figure Caption Extraction App</p>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Project Overview</h2>
+      <p>
+        Figure Caption Extraction and Access System is a production-ready tool designed to help researchers and developers extract, analyze, and query structured metadata from scientific papers, with a focus on figure captions and biological entities.
+        
+      </p>
+      <p>
+ How It Works<br>
+
+Data Ingestion:
+
+Fetches paper metadata (title, abstract), figure captions, and image URLs from PubMed Central (PMC) and PubTator APIs.<br>
+
+
+Processes raw data to identify biological entities (e.g., genes) mentioned in captions.<br>
+
+Storage:
+
+Stores structured data in PostgreSQL with tables for Papers, Figures, and Entities.
+
+Optimized for fast querying via SQLAlchemy ORM.<br>
+
+Access:
+
+REST API (FastAPI): Securely query data with API key authentication. Supports JSONoutputs.
+      </p>
+    </section>
+
+    <section id="demo">
+    
+      <!-- Replace '/static/demo.cast' with your actual .cast file path -->
+      <asciinema-player src="/static/demo.cast" cols="90" rows="24" autoplay></asciinema-player>
+    </section>
+
+    <section id="screenshots">
+      <h2>Screenshots Gallery</h2>
+      <div class="screenshots">
+        <!-- Replace with your actual screenshots -->
+        <img src="imgs\first_page.png" alt="Screenshot 1" />
+        <img src="imgs\batch_ingestion.png" alt="Screenshot 2" />
+        <img src="imgs\batch_ingest_page.png" alt="Screenshot 3" />
+        <img src="imgs\figuress.png" alt="Screenshot 4" />
+        <img src="imgs\figure_output.png" alt="Screenshot 5" />
+         <img src="imgs\entities.png" alt="Screenshot 3" />
+          <img src="imgs\entiities_output.png" alt="Screenshot 3" />
+          <img src="imgs\paper.png" alt="Screenshot 3" />
+           <img src="imgs\paper_keyword.png" alt="Screenshot 3" />
+           
+           
+      </div>
+    </section>
+
+    <section id="resources">
+      <h2>Resources & Links</h2>
+      <div class="links">
+        <a href="https://asciinema.org/a/Zpo3bzfFZdqB7Jy73roy8Q4Zh" target="_blank" rel="noopener noreferrer">Asciinema Demo 1</a>
+    <a href="https://asciinema.org/a/tPKzW7cD5tvabK1R0KzIMzZMo" target="_blank" rel="noopener noreferrer">Asciinema Demo 2</a>
+        <a href="https://github.com/sejal1234desai/bootcamp/tree/master/Figure-caption-extraction" target="_blank" rel="noopener noreferrer">Github Link</a>
+      
+      <a href="https://your-presentation-url.com" target="_blank" rel="noopener noreferrer">Presentation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; sejal.
+  </footer>
+
+  <!-- Asciinema player JS -->
+  <script src="https://cdn.jsdelivr.net/npm/asciinema-player/dist/asciinema-player.min.js"></script>
+</body>
+</html>
